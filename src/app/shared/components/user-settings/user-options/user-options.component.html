@@ -1,0 +1,17 @@
+<div [ngClass]="'dropdown'">
+  <div aria-haspopup="listbox" [ngClass]="'dropdown-button'" (click)="toggleDropdown()" (clickOutside)="dropdownOpen = false">
+    <img [ngClass]="'userImage'" src="../../../../../assets/User-Icon.png" alt="user image">
+    <div>
+      <div [ngClass] = "'userName'">{{user?.name}}</div>
+      <div [ngClass] = "'email'">{{user?.email}}</div>
+    </div>
+  </div>
+  <ul aria-expanded="false" [ngClass]="{'dropdown-open' : dropdownOpen, 'dropdown-list' : true }">
+<!--    <li (click)="viewProfile()">
+      <img [ngClass]="'userProfile'" src="assets/profile-svgrepo-com.png" alt="user image">
+      View Profile</li>-->
+    <li (click)="logOut()">
+      <img [ngClass]="'userLogOut'" src="../../../../../assets/log-out-svgrepo-com.png" alt="user image">
+      Log out</li>
+  </ul>
+</div>

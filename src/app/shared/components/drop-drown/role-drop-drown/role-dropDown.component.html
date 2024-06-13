@@ -1,0 +1,6 @@
+<select [ngClass]="'roleDropdown'" (change)="onSelectionChange($event)">
+  <option *ngFor="let item of items"
+          [selected]="item.id === defaultItem"
+          [value]="item.id"
+  >{{item.rank}}</option>
+</select>

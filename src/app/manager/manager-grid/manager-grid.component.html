@@ -1,0 +1,71 @@
+<div [ngClass]="'header'">
+  <img [ngClass]="'logo'" src="assets/ML_Logo_Original.png" alt="LOGO">
+  <app-user-options [user]="user" (logOutEvent)="logOut()" ></app-user-options>
+</div>
+
+<div [ngClass]="'search-components'">
+  <div [ngClass]="'search-module'">
+    <app-search [ngClass]="'search-sn'"  [searchInput]="moduleSn" [placeholder]="'Search by SerialNbr...'" (search)="onSearchChangeSn($event)"></app-search>
+    <button [ngClass]="'clearButton'" (click)="SearchBySn()">Search</button>
+  </div>
+  <app-search [ngClass]="'filter-search'" (search)="onSearchChange($event)" [placeholder]="'Filter by User...'" ></app-search>
+</div>
+
+<div [ngClass]="'calibrationsInfo'">
+
+  <div [ngClass]="'left-side'">
+    <div [ngClass]="'user-row-header'">
+      <p [ngClass]="'ModuleSn'" >ModuleSn</p>
+      <p [ngClass]="'Email'" >Email</p>
+      <p [ngClass]="'Standard'" >Standard</p>
+      <p [ngClass]="'Profile'" >Profile</p>
+      <p [ngClass]="'Date'" >Date</p>
+      <p [ngClass]="'Temp'" >Temp</p>
+      <p [ngClass]="'OverallStatus'" >Status</p>
+    </div>
+    <div [ngClass]="'users-options-header'" >
+      <div [ngClass]="'Title'">
+        <h2>{{ calibrationsTitle }}</h2>
+        <button [ngClass]="'clearButton'" (click)="ClearGrid()">Clear</button>
+      </div>
+      <div [ngClass]="'filters'">
+        <app-user-dropdown
+          [items]="usersList!"
+          (valueSelected)="onSelectionChange($event)">
+        </app-user-dropdown>
+
+        <mat-form-field class="fromDate">
+          <input matInput [matDatepicker]="fromDatePicker" placeholder="From" [(ngModel)]="startDate" (ngModelChange)="onDateChange()">
+          <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #fromDatePicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="fromDate">
+          <input matInput [matDatepicker]="toDatePicker" placeholder="To" [(ngModel)]="endDate" (ngModelChange)="onDateChange()">
+          <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #toDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <app-calibration-rows [items]="calibrationsList" (rowClicked)="onRowClicked($event)"></app-calibration-rows>
+    <!-- For module calibrations -->
+    <div class="pagination" *ngIf="isModuleCalibrationsDisplayed">
+      <button (click)="getModuleCalibrations(moduleSn, currentPageModule - 1)" [disabled]="currentPageModule === 1">Previous</button>
+      <span>Page {{ currentPageModule }} of {{ totalPagesModule }}</span>
+      <button (click)="getModuleCalibrations(moduleSn, currentPageModule + 1)" [disabled]="currentPageModule === totalPagesModule">Next</button>
+    </div>
+
+    <!-- For calibrations -->
+    <div class="pagination" *ngIf="!isModuleCalibrationsDisplayed">
+      <button (click)="getCalibrations(email, startDate, endDate, currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button (click)="getCalibrations(email, startDate, endDate, currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
+
+  <div [ngClass]="'right-side'">
+      <app-calibrations-info [calibrationId]="calibrationId" [moduleSn]="moduleSnClicked" [measurements]="measurementsList" [instruments]="instrumentsList" ></app-calibrations-info>
+  </div>
+
+</div>
+

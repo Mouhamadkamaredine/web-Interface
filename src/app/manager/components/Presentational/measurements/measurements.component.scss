@@ -1,0 +1,16 @@
+.measurements {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f5f5f5;
+
+  .status {
+    width: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
+

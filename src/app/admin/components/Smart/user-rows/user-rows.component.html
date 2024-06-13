@@ -1,0 +1,3 @@
+<div *ngFor="let user of items">
+  <app-user-row [item]="user" (popUp)="openDialog($event)" (activateDeactivate)="activateDeactivateUser($event)" (updateRank)="onSelectionChange($event)" ></app-user-row>
+</div>

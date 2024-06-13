@@ -1,0 +1,28 @@
+<div [ngClass]="'header'">
+  <img [ngClass]="'logo'" src="assets/ML_Logo_Original.png" alt="LOGO">
+  <app-user-options [user]="user" (logOutEvent)="logOut()" ></app-user-options>
+</div>
+
+
+<app-search (search)="onSearchChange($event)"></app-search>
+
+<div [ngClass]="'user-row-header'">
+  <p [ngClass]="'userName'" >Name</p>
+  <p [ngClass]="'status'" >Status</p>
+  <div [ngClass]="'userActions'">
+    <p [ngClass]="'role'" >Role</p>
+  </div>
+</div>
+
+<div [ngClass]="'users-options-header'" >
+  <h2>{{ usersTitle }}</h2>
+  <div [ngClass]="'user-actions'" >
+    <button [ngClass]="'filterActive'" matTooltip="Filter by status" [matTooltipPosition]="'below'" (click)="filterUsers()">
+      <img [ngClass]="'filter'" src="assets/filter-svgrepo-com.png" alt="Add user image">
+    </button>
+    <button [ngClass]="'addUser'" matTooltip="Add User" [matTooltipPosition]="'below'" (click)="openAddDialog()">
+      <img [ngClass]="'userAdd'" src="assets/profile-plus-round-1343-svgrepo-com.png" alt="Add user image">
+    </button>
+  </div>
+</div>
+<app-user-rows [items]="usersList" (popUp)="openDialog($event)" (activateDeactivate)="activateDeactivateUser($event)" (updateRank)="onSelectionChange($event)"></app-user-rows>

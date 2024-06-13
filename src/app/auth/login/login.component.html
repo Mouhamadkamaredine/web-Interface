@@ -1,0 +1,31 @@
+<div [ngClass]="'loginCard'">
+  <div [ngClass]="'card-header'">
+    <img [ngClass]="'logo'" src="assets/ML_Logo_Original.png" alt="LOGO">
+    <h2 [ngClass]="'title'">Login</h2>
+  </div>
+  <div class="card-body">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="emailInput">
+        <input type="text" placeholder="Email" id="email" formControlName="email"  [ngClass]="'email-input'" />
+      </div>
+      <div class = "error" *ngIf="submitted || emailControl?.touched && emailControl?.invalid">
+        <div *ngIf="validateInput('email','required')" >Email is required</div>
+        <div *ngIf="validateInput('email','pattern')" >Email format is incorrect</div>
+      </div>
+      <div class="error-placeholder"></div>
+      <div class="passwordInput">
+        <input type="password" autocomplete="your-password" placeholder="Password" id="password" formControlName="password" [ngClass]="'password-input'" />
+      </div>
+      <div class = "error" *ngIf="submitted || passwordControl?.touched && passwordControl?.invalid">
+        <div *ngIf="validateInput('password','required')" >Password is required</div>
+      </div>
+      <div class="error-placeholder"></div>
+      <div class="card-bottom">
+        <button [ngClass]="'loginButton'">Login</button>
+        <div class = "error" *ngIf="submitted && isIncorrect">
+          <div>Email or Password incorrect</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

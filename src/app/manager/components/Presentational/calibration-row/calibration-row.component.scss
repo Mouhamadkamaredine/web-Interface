@@ -1,0 +1,41 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #DCDCDC;
+  border-radius: 8px;
+  padding: 10px 15px 10px 15px;
+  margin: 0 10px 15px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: #F5F5F5;
+  }
+
+  .pass {
+    color: green;
+  }
+
+  .fail {
+    color: red;
+  }
+
+}
+
+.standard, .profile, .overAllStatus, .date, .temp, .moduleSn, .email {
+  font-size: 14px;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overAllStatus, .temp {
+  width: 50px;
+}
+
+.moduleSn, .email {
+  width: 150px;
+}

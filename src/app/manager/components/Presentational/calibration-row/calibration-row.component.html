@@ -1,0 +1,15 @@
+<div [ngClass]="'row'" (click)="onRowClicked()">
+  <div [ngClass]="'moduleSn'" matTooltip="{{item.moduleSn}}" matTooltipPosition="below">
+    {{item.moduleSn}}
+  </div>
+  <div [ngClass]="'email'" matTooltip="{{item.email}}" matTooltipPosition="below">
+    {{item.email}}
+  </div>
+  <div [ngClass]="'standard'" >{{item.standardName ? item.standardName : "Not Named"}}</div>
+  <div [ngClass]="'profile'" >{{item.profileName ? item.profileName : "Not Named"}}</div>
+  <div [ngClass]="'date'" >{{item.date | date:'yyyy-MM-dd' }}</div>
+  <div [ngClass]="'temp'" >{{item.temp}}°C</div>
+  <div [ngClass]="{'overAllStatus': true, 'pass': item.overallStatus, 'fail': !item.overallStatus}">
+    {{ item.overallStatus ? "Pass" : "Fail" }}
+  </div>
+</div>

@@ -1,0 +1,94 @@
+.dropdown-button {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(217, 217, 217, 0.5);
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 175px;
+  max-width: 300px;
+  transition: all 0.3s ease-in-out; // Add transition for smooth effect
+
+  .userName {
+    font-size: 14px;
+  }
+
+  .email {
+    font-weight: normal;
+    font-size: 12px;
+  }
+
+  &:hover {
+    background: #F5F5F5;
+
+    .userImage {
+      transition: all 0.3s ease-in-out; // Add transition for smooth effect
+      background: #F5F5F5;
+    }
+
+  }
+
+  &:active {
+    background: #ffffff;
+    transform: scale(0.98);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+  }
+
+  .userImage {
+    width: 36px;
+  }
+
+}
+
+.dropdown-list {
+  position: fixed;
+  background-color: #F8F8FA;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 6px;
+  z-index: 100;
+  right: 22px;
+  top: 70px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: #e1e1e1;
+    }
+  }
+
+  &.dropdown-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.userProfile {
+  width: 20px;
+  padding-right: 7.5px;
+}
+
+.userLogOut {
+  padding-right: 10px;
+  width: 20px;
+}
+
+
+
+
+
+

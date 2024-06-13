@@ -1,0 +1,25 @@
+<div ngClass="info">
+
+  <button class="downloadButton" (click)="downloadFiles()" [disabled]="calibrationId == null" >Download Files</button>
+  <hr>
+
+  <div class="collapsible">
+    <div (click)="toggleMeasurementsVisibility()" [ngClass]="{'measurements': true, 'collapsed': measurementsCollapsed}">Measurements</div>
+    <hr>
+    <div class="overflowing" [ngClass]="{'collapsed': measurementsCollapsed}">
+      <div *ngFor="let measurement of measurements">
+        <app-measurements [item]="measurement"></app-measurements>
+      </div>
+    </div>
+  </div>
+
+  <div class="collapsible">
+    <div (click)="toggleInstrumentsVisibility()" [ngClass]="{'instruments': true, 'collapsed': instrumentsCollapsed}">Instruments</div>
+    <hr>
+    <div class="overflowing" [ngClass]="{'collapsed': instrumentsCollapsed}">
+      <div *ngFor="let instrument of instruments">
+        <app-instruments [item]="instrument"></app-instruments>
+      </div>
+    </div>
+  </div>
+</div>

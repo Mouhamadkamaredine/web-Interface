@@ -1,0 +1,12 @@
+<div ngClass="measurements">
+  <div [ngClass]="'name'" >Name: {{item.name}}</div>
+  <div [ngClass]="'values'" >Values: {{ item.calibratedValues }}</div>
+  <div [ngClass]="'status'" >Status:
+    <div *ngIf="item.status == '1'" >
+      <img [ngClass]="'status-img'" ngSrc="assets/GreenBall.png" alt="status image" height="12" width="12">
+    </div>
+    <div *ngIf="item.status == '0'" >
+      <img [ngClass]="'status-img'" ngSrc="assets/RedBall.png" alt="status image" height="12" width="12">
+    </div>
+  </div>
+</div>

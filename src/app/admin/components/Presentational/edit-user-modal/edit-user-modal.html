@@ -1,0 +1,19 @@
+<div [ngClass]="'modal-dialog-container'">
+  <div [ngClass]="'modal-dialog-content'">
+    <h2>Edit User</h2>
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div [ngClass]="'newUserName'">
+        <input [ngClass]="'newUserNameInput'" id="userName" formControlName="userName" placeholder="{{data.name}}">
+        <button [ngClass]="'saveBtn'">Save</button>
+      </div>
+      <div [ngClass]="'error'" *ngIf="userNameControl?.touched && userNameControl?.invalid">
+        <div *ngIf="validateInput('userName','pattern')">At least 3 letters and only letters</div>
+      </div>
+      <div class="error-placeholder"></div>
+    </form>
+    <div [ngClass]="'passwordGenerate'">
+      <input [ngClass]="'password'" [(ngModel)]="generatedValue" placeholder="Generated Password" [value]="generatedValue ? generatedValue : 'Generate new Password'" disabled="disabled">
+      <button [ngClass]="'generate'" (click)="getGenerateValue()">Generate</button>
+    </div>
+  </div>
+</div>

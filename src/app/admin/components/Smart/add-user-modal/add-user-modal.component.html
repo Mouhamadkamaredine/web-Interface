@@ -1,0 +1,45 @@
+<div [ngClass]="'add-modal-dialog-container'">
+  <div [ngClass]="'modal-dialog-content'">
+    <h2>Add User</h2>
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="emailInput">
+        <input type="text" placeholder="Email" id="email" formControlName="email"  [ngClass]="'email-input'"/>
+      </div>
+      <div class = "error" *ngIf="submitted || emailControl?.touched && emailControl?.invalid">
+        <div *ngIf="validateInput('email','required')" >Email is required</div>
+        <div *ngIf="validateInput('email','pattern')" >Email format is incorrect</div>
+      </div>
+      <div class="error-placeholder"></div>
+      <div [ngClass]="'newUserName'">
+        <input [ngClass]="'newUserNameInput'" id="userName" formControlName="userName" placeholder="Username">
+      </div>
+      <div [ngClass]="'error'" *ngIf="userNameControl?.touched && userNameControl?.invalid">
+        <div *ngIf="validateInput('userName','required')">Username is required</div>
+        <div *ngIf="validateInput('userName','pattern')">At least 3 letters and only letters</div>
+      </div>
+      <div class="error-placeholder"></div>
+      <div class="passwordInput">
+        <input type="password" autocomplete="your-password" placeholder="Password" id="password" formControlName="password" [ngClass]="'password-input'" />
+      </div>
+      <div class = "error" *ngIf="submitted || passwordControl?.touched && passwordControl?.invalid">
+        <div *ngIf="validateInput('password','required')" >Password is required</div>
+        <div *ngIf="validateInput('password','pattern')" >At least 1 special, capital, lowercase, number (15)</div>
+      </div>
+      <div class="error-placeholder"></div>
+      <div class="passwordInput">
+        <input type="password" autocomplete="your-password" placeholder="Confirm Password" id="confPassword" formControlName="confPassword" [ngClass]="'password-input'" />
+      </div>
+      <div class = "error" *ngIf="submitted || passwordControl?.touched && passwordControl?.invalid">
+        <div *ngIf="form.hasError('notmatched')" >Passwords not matching</div>
+      </div>
+      <div class="error-placeholder"></div>
+      <div class="rankInput">
+        <app-role-dropDown [ngClass]="'addRoleDropdown'" [items]="roles" (valueSelected)="onSelectionChange($event)" ></app-role-dropDown>
+      </div>
+      <div class="error-placeholder"></div>
+      <div class="card-bottom">
+        <button [ngClass]="'addUser'">Add User</button>
+      </div>
+    </form>
+  </div>
+</div>

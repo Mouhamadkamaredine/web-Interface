@@ -1,0 +1,3 @@
+<div *ngFor="let calibration of items">
+  <app-calibration-row [item]="calibration" (rowClicked)="onRowClicked($event)"></app-calibration-row>
+</div>

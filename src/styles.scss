@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  font-family: Poppins, sans-serif;
+  margin: 5px 0 0 0;
+  overflow-y: hidden;
+}
+
+.modal-dialog-container {
+  background-color: #ffffff;
+  overflow: auto;
+  border-radius: 5px;
+  height: 250px;
+}
+
+.add-modal-dialog-container {
+  height: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+  border-radius: 5px;
+}

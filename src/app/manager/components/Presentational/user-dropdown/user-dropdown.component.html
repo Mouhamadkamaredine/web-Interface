@@ -1,0 +1,6 @@
+<select [ngClass]="'userDropdown'" (change)="onSelectionChange($event)">
+  <option value="" disabled selected>Select User</option>
+  <option *ngFor="let item of items"
+          [value]="item.email"
+  >{{item.email}}</option>
+</select>

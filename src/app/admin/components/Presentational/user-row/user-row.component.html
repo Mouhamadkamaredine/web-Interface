@@ -1,0 +1,18 @@
+<div [ngClass]="'userName'" >{{item.name}}</div>
+<div [ngClass]="{'active': !item.isDeleted, 'inactive': item.isDeleted}" >{{item.isDeleted ? "Inactive" : "Active"}}</div>
+
+<div [ngClass]="'userActions'">
+  <app-role-dropDown
+    [items]="roles"
+    [defaultItem]="item.permissionsId!"
+    (valueSelected)="onSelectionChange($event)">
+  </app-role-dropDown>
+  <button [ngClass]="'btn btn-edit'" (click)="openDialog()">
+    <img [ngClass]="'userLogOut'" src="assets/edit-user-6-svgrepo-com.png" alt="user image">
+  </button>
+  <button [ngClass]="'btn btn-danger'" (click)="activateDeactivateUser()">
+    <img *ngIf="!item.isDeleted" [ngClass]="'userDeactivate'" src="assets/circle-cancel-svgrepo-com.png" alt="deactivate image">
+    <img *ngIf="item.isDeleted" [ngClass]="'userActivate'" src="assets/circle-success-svgrepo-com.png" alt="activate image">
+  </button>
+</div>
+

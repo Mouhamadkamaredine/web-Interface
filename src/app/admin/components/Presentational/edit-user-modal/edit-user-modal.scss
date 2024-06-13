@@ -1,0 +1,102 @@
+.modal-dialog-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  overflow: auto;
+
+  .form {
+
+    .error {
+      position: fixed;
+      font-size: 12px;
+      color: red;
+    }
+
+    .error-placeholder {
+      height: 15px;
+    }
+
+  }
+
+  button {
+    width: 30%;
+    margin-left: 10px;
+    border-radius: 6px;
+    padding: 7.5px 0 7.5px 0;
+    border: none;
+    color: white;
+    background: #1f5192;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: rgba(31, 81, 146, 0.85);
+    }
+
+    &:active {
+      background: #184b87;
+      transform: scale(0.98);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+  }
+
+  input {
+    border-radius: 6px;
+    border: 1px solid rgba(169, 169, 169, 0.5);
+    padding: 7.5px;
+    margin: 5px 0 5px 0;
+    width: 200px;
+
+    &::placeholder {
+      color: rgba(102, 102, 102, 0.6);
+    }
+  }
+
+  .newUserName {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .passwordGenerate {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .save {
+    display: flex;
+    justify-content: center;
+
+    .saveBtn {
+      width: 80%;
+      padding: 7.5px 0 7.5px 0;
+      color: white;
+      background: #0E2443;
+      border-radius: 40px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: #1f5192;
+      }
+
+      &:active {
+        background: #0b1f36;
+        transform: scale(0.98);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
